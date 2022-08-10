@@ -27,17 +27,20 @@ const useWordle = (solution) => {
     //add new guess when user hits enter
 
     const handleKeyup = ({ key }) => {
-        
-        if (/^[A-Za-z]$/.test(key)) { //testing to make sure that the user types a letter key instead of something else
-            if (currentGuess.length < 5) {
-                setCurrentGuess((prev) => {
-                    return prev + key
-                }) //this is updating the current guess to be the previous guess plus the next keystroke
-            }
+        console.log('key pressed - ', key)
+    
+        if (key === 'Backspace') {
+          setCurrentGuess(prev => prev.slice(0, -1))
+          return
         }
+        if (/^[A-Za-z]$/.test(key)) {
+          if (currentGuess.length < 5) {
+            setCurrentGuess(prev => prev + key)
+          }
+        }
+      }
+    
+      return {turn, currentGuess, guesses, isCorrect, handleKeyup}
     }
-
-    return (turn, currentGuess, guesses, isCorrect, handleKeyup) 
-}
-
-export default useWordle 
+    
+    export default useWordle
