@@ -30,8 +30,7 @@ const useWordle = (solution) => {
 
     }
 
-    return (turn, currentGuess, guesses, isCorrect, handleKeyup) //these are the things that will be needed outside of the hook as data
-
+    return (turn, currentGuess, guesses, isCorrect, handleKeyup) 
 }
 
 export default useWordle 
